@@ -91,7 +91,7 @@ func NewUser(input NewUserInput, hasher PasswordHasher) (*User, error) {
 	}
 
 	validator := doberman.NewPasswordValidator(nil)
-	if err := validator.Validate(input.Password.String()); err != nil {
+	if err := validator.Validate(input.Password); err != nil {
 		return nil, err
 	}
 
